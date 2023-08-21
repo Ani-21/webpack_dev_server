@@ -3,6 +3,7 @@ import { Navbar } from "widgets/Navbar";
 import { AppRouter } from "./providers/router";
 import { useTheme } from "./providers/theme";
 import "./styles/index.scss";
+import { Sidebar } from "widgets/Sidebar";
 
 const App = () => {
   const { theme } = useTheme();
@@ -12,7 +13,10 @@ const App = () => {
       className={classNames("app", { hovered: false, selected: true }, [theme])}
     >
       <Navbar />
-      <AppRouter />
+      <div className="content-page">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
