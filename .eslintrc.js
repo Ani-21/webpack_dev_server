@@ -34,6 +34,7 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/indent": "off",
     "comma-dangle": "off",
     "@typescript-eslint/comma-dangle": "off",
   },
