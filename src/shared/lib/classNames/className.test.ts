@@ -1,8 +1,8 @@
-import { classNames } from './classNames';
+import { classNames } from 'shared/helpers/classNames/classNames';
 
 describe('classNames', () => {
   test('with one param', () => {
-    expect(classNames('someClass')).toBe('someClass');
+    expect(classNames('someClass', {})).toBe('someClass');
   });
 
   test('with all params', () => {
