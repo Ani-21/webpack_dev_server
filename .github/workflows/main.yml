@@ -9,18 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
+        uses: actions/setup-node@v3
+          cache: 'npm'
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: install dependencies
         run: npm install
-      - name: build production project
+      - name: build project
         run: npm run build:prod
       - name: unit testing
-        run: npm run test:unit
+        run: npm run test:unit 
