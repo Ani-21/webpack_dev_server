@@ -6,8 +6,8 @@ describe('Sidebar ui', () => {
   test('Sidebar should display with one param', () => {
     render(<Sidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-    screen.debug();
   });
+
   test('Sidebar should collapse when button clicked', () => {
     render(<Sidebar />);
     const toggleBtn = screen.getByTestId('sidebar-toggle');
