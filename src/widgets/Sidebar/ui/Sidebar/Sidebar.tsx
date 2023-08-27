@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { Button } from 'shared/ui/Button/Button';
 
-interface SidebarProps {
+export interface SidebarProps {
   className?: string;
 }
 
