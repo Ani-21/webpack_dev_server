@@ -19,10 +19,17 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
+export const Clear: Story = {
   args: {
-    children: 'Secondary',
+    children: 'Clear',
     theme: ButtonTheme.CLEAR,
+  },
+};
+
+export const ClearInverted: Story = {
+  args: {
+    children: 'Clear Inverted',
+    theme: ButtonTheme.CLEAR_INVERTED,
   },
 };
 

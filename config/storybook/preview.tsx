@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import { ThemeProvider } from '../../src/app/providers/theme';
+import { Theme, ThemeProvider } from '../../src/app/providers/theme';
 import { BrowserRouter } from 'react-router-dom';
 
 export const preview: Preview = {
@@ -14,10 +14,12 @@ export const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
+    (Story, options) => (
       <BrowserRouter>
-        <ThemeProvider>
-          <Story />
+        <ThemeProvider initialTheme={options.theme}>
+          <div className={`app ${options.theme}`}>
+            <Story />
+          </div>
         </ThemeProvider>
       </BrowserRouter>
     ),
