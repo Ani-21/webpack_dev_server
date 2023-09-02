@@ -1,11 +1,21 @@
 import { BugButton } from 'app/providers/error.boundary/ui/BugButton';
 import { Counter } from 'entities/counter';
+import { useState } from 'react';
+import { Input } from 'shared/ui/Input/Input';
 
-const MainPage = () => (
-  <div>
-    <h1>Главная страница</h1>
-    <Counter />
-  </div>
-);
+const MainPage = () => {
+  const [value, setValue] = useState('');
+
+  const onChange = (val: string) => {
+    setValue(val);
+  };
+
+  return (
+    <div>
+      <h1>Главная страница</h1>
+      <Input placeholder="Введите текст" value={value} onChange={onChange} />
+    </div>
+  );
+};
 
 export default MainPage;
