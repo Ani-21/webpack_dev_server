@@ -1,5 +1,3 @@
-import { BugButton } from 'app/providers/error.boundary/ui/BugButton';
-import { Counter } from 'entities/counter';
 import { useState } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 

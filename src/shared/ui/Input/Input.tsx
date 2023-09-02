@@ -56,7 +56,7 @@ export const Input = (props: InputProps) => {
           onSelect={onSelect}
           {...otherProps}
         />
-        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 7}px` }} />}
+        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
       </div>
     </div>
   );
