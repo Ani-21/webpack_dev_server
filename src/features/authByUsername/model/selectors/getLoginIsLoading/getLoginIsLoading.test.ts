@@ -9,11 +9,11 @@ describe('getLoginIsLoading', () => {
         isLoading: true,
       },
     };
-    expect(getLoginIsLoading(state as StateSchema)).toEqual('error');
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
   });
 
   test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginIsLoading(state as StateSchema)).toEqual(undefined);
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
   });
 });
