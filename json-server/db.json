@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Ani",
+    "lastname": "Kvikvinia",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russioa",
+    "city": "St.PEtersburg",
+    "username": "admin",
+    "avatar": ""
+  }
 }
