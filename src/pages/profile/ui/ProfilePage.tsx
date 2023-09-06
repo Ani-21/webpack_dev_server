@@ -1,20 +1,22 @@
-import { useState } from 'react';
-import { Input } from 'shared/ui/Input/Input';
+import { profileReducer } from 'entities/profile';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-export interface ProfilePageProps {}
+export interface ProfilePageProps {
+  className?: string;
+}
 
-const ProfilePage = () => {
-  const [value, setValue] = useState('');
+const reducers: ReducersList = {
+  profile: profileReducer,
+};
 
-  const onChange = (val: string) => {
-    setValue(val);
-  };
+const ProfilePage = (props: ProfilePageProps) => {
+  const { className } = props;
 
   return (
-    <div>
-      <h1>Профиль страница</h1>
-      <Input placeholder="Введите текст" value={value} onChange={onChange} />
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div className={classNames('', {}, [className])}></div>
+    </DynamicModuleLoader>
   );
 };
 
