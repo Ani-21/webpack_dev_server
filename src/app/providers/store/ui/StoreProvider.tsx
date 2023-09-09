@@ -1,8 +1,8 @@
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createReduxStore } from '..';
 import { StateSchema } from '../config/StateSchema';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
-import { NavigateOptions, To, useNavigate } from 'react-router-dom';
 
 interface StoreProviderProps {
   children?: React.ReactNode;

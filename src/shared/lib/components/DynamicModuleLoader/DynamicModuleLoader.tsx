@@ -22,14 +22,17 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+    Object.entries(reducers).forEach((entry) => {
+      const [name, reducer] = entry as readonly [StateSchemaKey, Reducer];
+
       store.reducerManager.add(name, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
+        Object.entries(reducers).forEach((entry) => {
+          const [name] = entry as readonly [StateSchemaKey, Reducer];
           store.reducerManager.remove(name);
           dispatch({ type: `@DESTROY ${name} reducer` });
         });

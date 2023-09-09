@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from 'app/providers/store';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/store/config/StateSchema';
 
 export interface componentRenderOptions {

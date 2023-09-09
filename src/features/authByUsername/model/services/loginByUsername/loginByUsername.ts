@@ -8,13 +8,13 @@ export interface LoginByUsernameProps {
   password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
   'login/loginByUsername',
   async (authData: LoginByUsernameProps, thunkApi) => {
     const { extra, dispatch, rejectWithValue } = thunkApi;
     try {
       const response = await extra.api.post<User>('/login', authData);
-      extra.navigate('/about');
+
       if (!response.data) {
         throw new Error();
       }

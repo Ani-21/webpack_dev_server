@@ -24,7 +24,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className, onSuccess } = props;
+  const { className = '', onSuccess } = props;
   const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -46,7 +46,9 @@ const LoginForm = memo((props: LoginFormProps) => {
   );
 
   const onLoginClick = useCallback(async () => {
+    //@ts-ignore
     const result = await dispatch(loginByUsername({ username, password }));
+
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }

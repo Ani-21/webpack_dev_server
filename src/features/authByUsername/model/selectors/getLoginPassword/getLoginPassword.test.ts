@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/store/config/StateSchema';
 import { getLoginPassword } from './getLoginPassword';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 describe('getLoginPassword', () => {
   test('should return value', () => {

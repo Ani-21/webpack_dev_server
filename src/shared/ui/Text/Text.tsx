@@ -14,7 +14,7 @@ export interface TextProps {
 }
 
 export const Text = (props: TextProps) => {
-  const { className, title, text, theme = TextTheme.PRIMARY } = props;
+  const { className = '', title, text, theme = TextTheme.PRIMARY } = props;
 
   const mods: Record<string, boolean> = {
     [cls[theme]]: true,
