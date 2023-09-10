@@ -6,18 +6,26 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
+export enum TextAlign {
+  RIGHT = 'right',
+  LEFT = 'left',
+  CENTER = 'center',
+}
+
 export interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
+  align?: TextAlign;
 }
 
 export const Text = (props: TextProps) => {
-  const { className = '', title, text, theme = TextTheme.PRIMARY } = props;
+  const { className = '', title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT } = props;
 
   const mods: Record<string, boolean> = {
     [cls[theme]]: true,
+    [cls[align]]: true,
   };
 
   return (
