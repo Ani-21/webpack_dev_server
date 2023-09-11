@@ -8,6 +8,7 @@ const initialState: ProfileSchema = {
   data: undefined,
   isLoading: false,
   error: '',
+  validateErrors: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -20,6 +21,7 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readonly = true;
       state.form = state.data;
+      state.validateErrors = undefined;
     },
     updateProfile: (state, action: PayloadAction<Profile>) => {
       state.form = {
@@ -32,7 +34,7 @@ export const profileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state) => {
-        state.error = '';
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
@@ -43,10 +45,10 @@ export const profileSlice = createSlice({
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
         // @ts-ignore
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = '';
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
@@ -57,7 +59,7 @@ export const profileSlice = createSlice({
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
         // @ts-ignore
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       });
   },
 });
