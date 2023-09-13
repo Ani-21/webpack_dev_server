@@ -45,8 +45,10 @@ const ProfilePage = (props: ProfilePageProps) => {
   const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    //@ts-ignore
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      //@ts-ignore
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback(
