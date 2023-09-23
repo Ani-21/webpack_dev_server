@@ -37,7 +37,7 @@ export const Button = (props: ButtonProps) => {
   } = props;
 
   const mods: Mode = {
-    [cls.theme]: true,
+    [cls[theme]]: true,
     [cls.square]: square,
     [cls[size]]: true,
     [cls.disabled]: disabled,
