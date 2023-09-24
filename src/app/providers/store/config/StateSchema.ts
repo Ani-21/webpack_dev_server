@@ -3,16 +3,19 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/articles/model/types/articleDetailsSchema';
 import { ProfileSchema } from 'entities/profile';
 import { UserSchema } from 'entities/user';
+import { AddCommentFormSchema } from 'features/addCommentForm';
 import { LoginSchema } from 'features/authByUsername';
+import { ArticleDetailsCommentSchema } from 'pages/articleDetails';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
   user: UserSchema;
-
   // Async reducer
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

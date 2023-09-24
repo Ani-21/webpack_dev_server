@@ -19,6 +19,7 @@ import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/currency';
 import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/profile/model/types/profile';
+import { useParams } from 'react-router-dom';
 export interface ProfilePageProps {
   className?: string;
 }
@@ -37,17 +38,20 @@ const validateErrorTranslates = {
 
 const ProfilePage = (props: ProfilePageProps) => {
   const { className = '' } = props;
+
   const dispatch = useAppDispatch();
   const form = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
-  const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    //@ts-ignore
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (id) {
+      //@ts-ignore
+      dispatch(fetchProfileData(id));
+    }
+  }, [dispatch, id]);
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
